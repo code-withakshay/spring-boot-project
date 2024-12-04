@@ -1,0 +1,5 @@
+package com.codeWithAkshay.www.repo;
+
+public interface CustomerRepository {
+
+}

@@ -1,0 +1,46 @@
+package com.codeWithAkshay.www.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.codeWithAkshay.www.model.Customer;
+import com.codeWithAkshay.www.repo.CustomerRepository;
+
+@Service
+public class CustomerService 
+{
+	@Autowired
+	CustomerRepository customerRepository;
+
+	public Customer addCustomer(Customer customer)
+	{
+		return customerRepository.save(customer);
+	}
+	
+	public Iterable<Customer> getAllCustomers()
+	{
+		return customerRepository.findAll();
+	}
+	
+	public Customer getCustomerById(int custId)
+	{
+		return customerRepository.findById(custId).get();
+	}
+	
+	public String updateCustomer(Customer customer)
+	{
+		Customer cust=customerRepository.findById(customer.getCustId()).get();
+		cust.setCustName(customer.getCustName());
+		cust.setCustAddress(customer.getCustAddress());
+		customerRepository.save(cust);
+		return "Record Updated";
+	}
+	
+	
+	public String deleteCustomer(int custId)
+	{
+		Customer customer=customerRepository.findById(custId).get();
+		customerRepository.delete(customer);
+		return "Record Deleted";
+	}
+}

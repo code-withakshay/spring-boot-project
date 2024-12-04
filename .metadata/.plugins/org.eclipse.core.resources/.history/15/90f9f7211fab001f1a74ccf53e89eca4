@@ -1,0 +1,5 @@
+package com.codeWithAkshay.www.exception;
+
+public class ErrroDetails {
+
+}

@@ -1,0 +1,18 @@
+package com.codeWithAkshay.www.model;
+
+@Entity
+@Table(name="customers")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Customer 
+{
+	@Id
+	private int custId;
+	
+	@Column
+	private String custName;       
+	
+	@Column
+	private String custAddress;
+}

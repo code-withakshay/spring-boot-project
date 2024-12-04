@@ -1,0 +1,5 @@
+package com.codeWithAkshay.www.model;
+
+public class Customer {
+
+}
